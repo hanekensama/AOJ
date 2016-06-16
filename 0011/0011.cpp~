@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+void swap(int *a, int *b) {
+  int c = *a;
+  *a = *b;
+  *b = c;
+}
+int main() {
+  int w, n;
+  vector<int> a, b, l;
+  cin >> w; cin >> n;
+  for (int i = 0; i < n; i++) {
+    int ai, bi;
+    cin >> ai >> bi;
+    a.push_back(ai); b.push_back(bi);
+  }
+
+  
+}
