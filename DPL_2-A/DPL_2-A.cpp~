@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<vector<int> > dp, dist;
+
+int main() {
+  int V, E;
+  cin >> V >> E;
+  dist = vector<vector<int> >(V, vector<int> (V, 1001));
+  
+  for (int i = 0; i < E; i++) {
+    int s, t, d;
+    cin >> s >> t >> d;
+    dist[s][t] = d;
+  }
+
+  dp = vector<vector<int> >(1 << V, vector<int> (V, 1000000));
+
+  for (int s = (1 << V) - 2; s >= 0; s--) {
+    for (int current = 0; current < V; current++) {
+      if (s& 1 << current == 0) {
+	for (int next = 0; next < V; next++) {
+	  int s_ = s |= 1 << next;
+	  dp[s][current] = min(dp[s][current], dp[s_][next] + dist[current][next]);
+	}
+      }
+    }    
+  }
+  cout << dp[0][0] << endl;
+
+  return 0;
+}
