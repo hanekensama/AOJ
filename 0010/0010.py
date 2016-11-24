@@ -2,7 +2,7 @@ import math
 
 
 def dist(a, b):
-    return ((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5
+    return math.hypot(a[0] - b[0], a[1] - b[1])
 
 
 def R(a, b, c):
