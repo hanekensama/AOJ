@@ -1,19 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+string cont(const vector<int>& v, int& i) {
+  int begin = v[i];
+  int pre = v[i];
+
+  while(++i < v.size() & v[i] == pre + 1)
+    pre = v[i];
+
+  if (begin == pre)
+    return to_string(begin);
+  else
+    return to_string(begin) + "-" + to_string(v[i - 1]);
+}
+
 void solve(const vector<int>& v) {
   string result;
-  auto a = -1;
-  auto begin = -1;
-  for (auto i = 0; i < v.size(); ++i) {
-    if (v[i] != a + 1) {
-      begin = v[i];
-      result += to_string(begin) + "-" + to_string(a) + " ";
-    }
-    a = v[i];
+  int i = 0;
+  cout << cont(v, i);
+  while(i < v.size()) {
+    cout << " " << cont(v, i);
   }
-
-  return result.pop_back();
+  cout << endl;
 }
 
 int main() {
