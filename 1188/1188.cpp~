@@ -1,0 +1,10 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int solve(string::iterator begin, string::iterator end) {
+
+}
+
+int main() {
+
+}
